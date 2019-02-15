@@ -1,6 +1,15 @@
-<h1>New log!</h1>
+<% include partials/header %>
 
-<form action="/logs/new" method="POST">
-    <label id="username">Username</label><input type="username" id="username" placeholder="Username">
-    <label id="email">Email</label><input type="email" id="email" placeholder="Email address">
-</form>
+<div class="container">
+    <h1>New log!</h1>
+    
+        <form action="/logs" method="POST">
+            <div class="form-group">
+                <label id="username">Username</label><input class="form-control" type="username" id="username" placeholder="Username">
+                <label id="email">Email</label><input class="form-control" type="email" id="email" placeholder="Email address">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+</div>
+
+<% include partials/footer %>

@@ -17,6 +17,10 @@ router.get("/logs", function(req, res){
 router.get("/logs/new", function(req, res) {
    res.render("new");
 });
+//CREATE LOG
+router.post("/logs", function(req, res){
+    res.send("This is the post route!");
+});
 
 
 module.exports = router;
