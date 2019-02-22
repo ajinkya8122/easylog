@@ -1,1 +1,36 @@
-<h1>This is where all logs show!</h1>
+<% include partials/header %>
+
+
+<div class="container">
+       
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Type</th>
+          <th scope="col">Name</th>
+          <th scope="col">Reps</th>
+          <th scope="col">Weight</th>
+          <th scope="col">Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(var i=0; i<logs.length;i++){ %>
+            <tr>
+              <th scope="row"><%= i+1 %></th>
+              <td><%= logs[i].exse_type_ref %></td>
+              <td><%= logs[i].exse_name_ref %></td>
+              <td><%= logs[i].reps %></td>
+              <td><%= logs[i].weight %></td>
+              <td><%= logs[i].created_date %></td>
+            </tr>
+        <% } %>
+      </tbody>
+    </table> 
+        
+    
+</div>
+
+
+    
+<% include partials/footer %>

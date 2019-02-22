@@ -10,8 +10,23 @@ var indexRoutes = require("./routes/index");
 // APP CONFIG
 app.set("view engine", "ejs");
 
+
+// USING ROUTES EXPORTED BY ROUTER
+app.use("/", indexRoutes);
+
+
+app.listen(process.env.PORT, function(){
+    console.log("App is running!");
+});
+
+
+
+
+
+// SEEDING LOGIC
+
 //SEEDING DATABASE
-//SEEDING USERS
+    //SEEDING USERS
 // var dataUsers = [];
 // for(var i=0; i<10; i++){
 //     dataUsers.push([
@@ -28,15 +43,15 @@ app.set("view engine", "ejs");
 //         ['Triceps', 'DB extensions'],
 //         ['Hamstrings Glutes', 'Romanian Deadlifts'],
 //         ['Quads', 'Barbell Squats'],
-//         ['Rotator Cuff', 'Incline Barbell Press'],
+//         ['Rotator Cuff', 'RC cable extensions'],
 //         ['Chest', 'Decline Barbell Press'],
-//         ['Chest', 'Barbell Press']
+//         ['Chest', 'Barbell Bench Press']
         
 //     ]
 
 
 // SEEDING SQL DB
-//user ajinkya8122
+    //user ajinkya8122
 // var connection = mysql.createConnection({
 //   host: 'localhost',
 //   user: 'ajinkya8122',
@@ -52,11 +67,3 @@ app.set("view engine", "ejs");
 //     if(err) throw err;
 //     console.log(result);
 // });
-
-// USING ROUTES EXPORTED BY ROUTER
-app.use("/", indexRoutes);
-
-
-app.listen(process.env.PORT, function(){
-    console.log("App is running!");
-});
