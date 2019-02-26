@@ -3,6 +3,12 @@ var express = require('express'),
     mysql   = require('mysql');
 
 
+var connection = mysql.createConnection({
+  host:    'localhost',
+  user:    'ajinkya8122',
+  database: 'log_app'
+});
+
 //INDEX 
 router.get("/", function(req, res){
     res.render("landing"); 
@@ -10,12 +16,8 @@ router.get("/", function(req, res){
 
 //LOGS ROUTE
 router.get("/logs", function(req, res){
-    var connection = mysql.createConnection({
-      host:    'localhost',
-      user:    'ajinkya8122',
-      database: 'log_app'
-    });
-    var q ='SELECT id, reps, weight, DATE_FORMAT(created_at, "%d-%m-%y %h:%i %p") AS created_date FROM logs';
+
+    var q ='SELECT id, exse_name_ref, exse_type_ref, reps, weight, DATE_FORMAT(created_at, "%d-%m-%y %h:%i %p") AS created_date FROM logs';
     connection.query(q, function(err, result){
         if(err) throw err;
         console.log(result);
@@ -30,7 +32,15 @@ router.get("/logs/new", function(req, res) {
 });
 //CREATE LOG
 router.post("/logs", function(req, res){
-    res.send("This is the post route!");
+    // var email = req.body.email;
+    var log = req.body.log;
+    console.log(log);
+    connection.query("INSERT INTO logs SET ?", log, function(err, result){
+        // (exsr_type_ref, exsr_type_ref, reps, weight)
+        if(err) throw err;
+        console.log(result);
+    });
+    res.redirect("/");
 });
 
 

@@ -5,8 +5,26 @@
     
         <form action="/logs" method="POST">
             <div class="form-group">
-                <label id="username">Username</label><input class="form-control" type="username" id="username" placeholder="Username">
-                <label id="email">Email</label><input class="form-control" type="email" id="email" placeholder="Email address">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="typeSelect">Type</label>
+                </div>
+                <select class="custom-select" name="log[exse_type_ref]" id="typeSelect">
+                    <option selected>Choose...</option>
+                    <option value="Chest">Chest</option>
+                    <option value="Back">Back</option>
+                    <option value="Quads">Quads</option>
+                </select>
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="nameSelect">Name</label>
+                </div>                
+                <select class="custom-select" name="log[exse_name_ref]" id="nameSelect">
+                    <option selected>Choose...</option>
+                    <option value="Barbell Bench Press">Barbell Bench Press</option>
+                    <option value="Barbell rows">Barbell rows</option>
+                    <option value="Barbell Squats">Barbell Squats</option>
+                </select>                
+                <label id="reps">Repetitions</label><input class="form-control" type="number" min="0" name="log[reps]" id="reps">
+                <label id="weight">Weight</label><input class="form-control" type="number" min="0" name="log[weight]" id="weight">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
